@@ -1,4 +1,4 @@
-import {memo} from "react";
+import { memo } from "react";
 
 const style = {
   width: "100%",
@@ -9,7 +9,7 @@ const style = {
 //親のコンポーネントに合わせてレンダリングしたくない時に有効
 //複数の要素から成り立っているコンポーネントや今後肥大化が予想されるコンポーネントに使える
 export const Child = memo((props) => {
-  const { display } = props;
+  const { display, handleClose } = props;
   console.log("childがレンダリングされた！");
 
   return (
@@ -17,6 +17,7 @@ export const Child = memo((props) => {
       {display ? (
         <div style={style}>
           <p>Hello world!</p>
+          <button onClick={handleClose}>Close</button>
         </div>
       ) : null}
     </>
